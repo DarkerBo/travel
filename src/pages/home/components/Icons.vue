@@ -20,56 +20,18 @@ export default {
   name: "HomeIcons",
   data() {
     return {
-        iconList: [{
-            id: '001',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-            desc: '景点门票'
-        },{
-            id: '002',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-            desc: '必游榜单'
-        },{
-            id: '003',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-            desc: '动植物园'
-        },{
-            id: '004',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/89/55083b0f1951f302.png',
-            desc: '公园'
-        },{
-            id: '005',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/89/55083b0f1951f302.png',
-            desc: '游船游艇'
-        },{
-            id: '006',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',
-            desc: '夏日玩水'
-        },{
-            id: '007',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-            desc: '名胜古迹'
-        },{
-            id: '008',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',
-            desc: '一日游'
-        },{
-            id: '009',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',
-            desc: '玩转长隆'
-        },{
-            id: '010',
-            imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png',
-            desc: '全部玩乐'
-        }],
         swiperOption:{
             pagination: '.swiper-pagination'
         }
     }
   },
+  props: {
+      list: Array
+  },
   computed: {
       pages () {
         const pages = []
-        this.iconList.forEach((value,index) => {
+        this.list.forEach((value,index) => {
             const page = Math.floor(index / 8)
              if(!pages[page]){
                 pages[page] = []
