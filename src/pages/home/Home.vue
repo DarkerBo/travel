@@ -6,7 +6,6 @@
         <home-position></home-position>
         <home-recommend :list="recommendList"></home-recommend>
         <home-weekend :list="weekendList"></home-weekend>
-
     </div>
 </template>
 
