@@ -10,13 +10,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 import HomeHeader from './components/Header'
 import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
 import HomePosition from './components/Position'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
-import axios from 'axios'
+
 
 
 export default {
