@@ -1,7 +1,13 @@
 <template>
     <div>
         <ul  class="list">
-            <li class="item"  v-for="(item,key) of cities" v-bind:key="key">{{key}}</li>
+            <li class="item"  v-for="item of letters" 
+             v-bind:key="item"
+             v-bind:ref="item"
+             v-on:click="handleLetterClick"
+             v-on:touchstart="handleTouchStart"
+             v-on:touchmove="handleTouchMove"
+             v-on:touchend="handleTouchEnd">{{item}}</li>
         </ul>
     </div>
 </template>
@@ -10,8 +16,62 @@
 export default {
     name: 'CityAlphabet',
 
+    data () {
+        return {
+            touchStatus: false,
+            startY: 0,
+            timer: null
+        }
+    },
+
+    computed: {
+        letters () {
+            const letters = []
+            for(var i in this.cities){
+                letters.push(i)
+            }
+
+            return letters
+        }
+    },
+
     props: {
         cities: Object
+    },
+
+    updated () {
+        this.startY = this.$refs['A'][0].offsetTop
+    },
+
+    methods: {
+        handleLetterClick (event) {
+            this.$emit("change",event.target.innerText)
+        },
+
+        handleTouchStart () {
+            this.touchStatus = true
+        },
+
+        handleTouchMove (event) {
+            if(this.touchStatus) {
+                if(this.timer){
+                    clearInterval(this.timer)
+                }
+
+                this.timer = setInterval(() => {
+                    // const startY = this.$refs['A'][0].offsetTop
+                    const touchY = event.touches[0].pageY -73 //Header的高度——73px
+                    const index = Math.floor((touchY - this.startY) / 20 )
+                    if(index >=0 && index < this.letters.length){
+                        this.$emit('change',this.letters[index])
+                    }
+                },16)
+            }
+        },
+
+        handleTouchEnd () {
+            this.touchStatus = false
+        }
     }
 }
 </script>
