@@ -27,7 +27,7 @@ export default {
     computed: {
         letters () {
             const letters = []
-            for(var i in this.cities){
+            for(let i in this.cities){
                 letters.push(i)
             }
 
@@ -55,10 +55,10 @@ export default {
         handleTouchMove (event) {
             if(this.touchStatus) {
                 if(this.timer){
-                    clearInterval(this.timer)
+                    clearTimeout(this.timer)
                 }
 
-                this.timer = setInterval(() => {
+                this.timer = setTimeout(() => {
                     // const startY = this.$refs['A'][0].offsetTop
                     const touchY = event.touches[0].pageY -73 //Header的高度——73px
                     const index = Math.floor((touchY - this.startY) / 20 )
