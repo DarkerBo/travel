@@ -10,7 +10,7 @@
             </div>
             <router-link to="/city">
                 <div class="header-right">
-                    {{this.city}}
+                    {{this.stateCity}}
                     <span class="iconfont arrow-icon">&#xe64a;</span>
                 </div>
             </router-link>
@@ -19,10 +19,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     name: 'HomeHeader',
-    props: {
-        city: String
+    computed: {
+        ...mapGetters(['stateCity']),
+
     }
 }
 </script>
@@ -31,15 +34,14 @@ export default {
 @import '~styles/varibles.styl'
 
     .header
-        height: .86rem; /* 43px */
+        height: .86rem; 
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: $bgColor;
         color: #fff;
         .header-left
-            width: .64rem;  /* 32px */
-            /* float: left; */
+            width: .64rem;  
             line-height: .64rem;
             margin-right: .2rem;
             text-align: center;
@@ -51,8 +53,7 @@ export default {
             color: #ccc;
             padding-left: .2rem;
         .header-right
-            width: 1.24rem;
-            /* float: right; */
+            min-width: 1.78rem;
             line-height: .64rem;
             text-align: center;
             color: #fff;
