@@ -5,7 +5,7 @@
              v-bind:key="item"
              v-bind:ref="item"
              v-on:click="handleLetterClick"
-             v-on:touchstart="handleTouchStart"
+             v-on:touchstart.prevent="handleTouchStart"
              v-on:touchmove="handleTouchMove"
              v-on:touchend="handleTouchEnd">{{item}}</li>
         </ul>

@@ -18,6 +18,7 @@ import DetailHeader from './components/Header'
 import DetailList from './components/List'
 import axios from 'axios'
 
+
 export default {
     name: 'Detail',
     data () {
