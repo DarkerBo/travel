@@ -38,14 +38,16 @@ export default {
             }else{
                 this.showIcon = true
             }
+
+            console.log(123)
         }
     },
 
-    activated () {
+    mounted () {
         window.addEventListener('scroll',this.handleScroll)
     },
 
-    deactivated () {
+    unmounted () {
         window.removeEventListener('scroll',this.handleScroll)
     }
 }
