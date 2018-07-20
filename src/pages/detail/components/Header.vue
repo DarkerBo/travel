@@ -38,8 +38,6 @@ export default {
             }else{
                 this.showIcon = true
             }
-
-            console.log(123)
         }
     },
 
