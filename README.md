@@ -14,11 +14,20 @@
 
 ## 部分页面及功能
  * 主页面(Home)
+ 
+ ![Home页面](https://github.com/DarkerBo/travel/raw/master/travel/screenshot/home.gif)
+ 
 
  * 城市查询页面(City)
+ 
+ 
+  ![City页面](https://github.com/DarkerBo/travel/raw/master/travel/screenshot/city.gif)
+  
 
  * 景点详情页面(Detail)
-
+ 
+ 
+ ![Detail页面](https://github.com/DarkerBo/travel/raw/master/travel/screenshot/detail.gif)
 
 
 
